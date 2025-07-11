@@ -1,0 +1,360 @@
+/*
+* STYLE FOR BREWSCAPE
+* ----------------------------------
+* Rewritten version of Café Aroma with new class names and structure.
+*/
+
+/* 1. FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Lato:wght@400;700;900&display=swap');
+
+/* 2. VARIABLES */
+:root {
+  --brand-color: #cc9332;
+  --brand-dark: #8c6725;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --background: #f8f5f0;
+
+  --font-headings: 'Lato', sans-serif;
+  --font-body: 'Karla', sans-serif;
+  --transition: 0.3s ease;
+}
+
+/* 3. BASE */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 4. TEXT STYLES */
+h1, h2, h3, h4 {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.375rem; }
+h4 { font-size: 1.125rem; }
+
+p { margin-bottom: 1rem; }
+
+/* 5. WRAPPERS & LAYOUT */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+  background: var(--brand-color);
+  color: var(--text-light);
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: auto;
+  z-index: 1000;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-intro .subtitle {
+  color: var(--brand-color);
+  text-transform: uppercase;
+}
+
+/* 6. HEADER */
+.site-header {
+  background: var(--text-light);
+  padding: 1rem 0;
+}
+
+.site-header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link img {
+  max-width: 150px;
+  filter: invert(70%) sepia(29%) saturate(1478%) hue-rotate(359deg) brightness(90%) contrast(89%);
+}
+
+.nav-main ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-main a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-family: var(--font-headings);
+  font-weight: 700;
+  transition: color var(--transition);
+}
+
+.nav-main a:hover,
+.nav-main a:focus {
+  color: var(--brand-color);
+  outline: 2px dashed var(--brand-color);
+  outline-offset: 4px;
+}
+
+/* 7. BUTTONS */
+.btn-cta,
+.btn-outline {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-cta {
+  background: var(--brand-color);
+  color: var(--text-light);
+  border: 2px solid var(--brand-color);
+}
+
+.btn-cta:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--text-light);
+}
+
+.btn-outline:hover {
+  background: var(--text-light);
+  color: var(--brand-dark);
+  transform: translateY(-3px);
+}
+
+.link-text {
+  color: var(--brand-color);
+  text-decoration: underline;
+}
+
+.link-text:hover {
+  color: var(--brand-dark);
+}
+
+/* 8. HERO */
+.hero-section {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  text-align: center;
+  padding: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 600px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 9. INTRO */
+.welcome-intro {
+  text-align: center;
+  background: var(--text-light);
+}
+
+.intro-head .tagline {
+  color: var(--brand-color);
+  font-weight: 400;
+}
+
+/* 10. VALUES */
+.card-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.card {
+  text-align: center;
+}
+
+.card img {
+  max-width: 80px;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* 11. PROMO SECTIONS */
+.callout {
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  text-align: center;
+  padding: 6rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.callout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+.highlight-menu {
+  background-image: url('../images/latte.jpeg');
+}
+
+.highlight-location {
+  background-image: url('../images/coffee-shop.jpeg');
+}
+
+/* 12. ABOUT / STORY */
+.split-layout {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.image-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* 13. TESTIMONIALS */
+.testimonial-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.testimonial {
+  background: var(--text-light);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.testimonial img {
+  max-width: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.testimonial blockquote {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial .author {
+  color: var(--brand-color);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* 14. FOOTER */
+.site-footer {
+  background: var(--text-light);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+/* 15. ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 16. MEDIA QUERIES */
+@media (min-width: 768px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.375rem; }
+  h3 { font-size: 1.75rem; }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 { font-size: 3.875rem; }
+  h2 { font-size: 3rem; }
+  h3 { font-size: 2rem; }
+
+  .logo-link img {
+    max-width: 200px;
+  }
+
+  .nav-main ul {
+    gap: 2.5rem;
+  }
+
+  .hero-section {
+    padding: 8rem 0;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .card-grid {
+    gap: 3rem;
+  }
+
+  .testimonial-grid {
+    gap: 2rem;
+  }
+}
